@@ -10,3 +10,32 @@ Third argument is what you will be replacing the second argument with (after).
 Note: Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word Book with the word dog, it should be replaced as Dog
 
 */
+
+// first
+
+function myReplace(str, before, after) {
+    const regexp = new RegExp(`\\b${before}\\b`, 'gi');
+    let matched = str.match(regexp);
+    if (matched[0].charAt(0).match(/[A-Z]/) !== null) {
+        after = after.charAt(0).toUpperCase() + after.slice(1);
+        return str.replace(matched[0], after)
+    } else {
+        return str.replace(matched[0], after.toLowerCase())
+    }
+ 
+}
+
+
+console.log(myReplace("I think we should look up there", "up", "Down"));
+//I think we should look down there
+
+// second solution
+/*
+function myReplace(str, before, after) {
+  if (before[0] === before[0].toUpperCase()) {
+    after = after.replace(after[0], after[0].toUpperCase());
+  }
+  return str.replace(before, after);
+}
+
+*/
