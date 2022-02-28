@@ -21,7 +21,7 @@ function sumPrimes(num) {
     for (let i = 2; i <= num; i++){
         if (isPrime(i) === true) primesArray.push(i);
     }
-    return primesArray.reduce((sum,prime) => sum+prime)
+    return primesArray.reduce((sum, prime) => sum + prime);
 }
 
 console.log(sumPrimes(977));
